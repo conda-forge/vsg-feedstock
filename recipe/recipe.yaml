@@ -41,10 +41,10 @@ tests:
       - pytest
     files:
       source:
-        - bin
-        - docs
-        - vsg
-        - tests
+        - bin/
+        - docs/
+        - vsg/
+        - tests/
         - pyproject.toml
     requirements:
       run:
