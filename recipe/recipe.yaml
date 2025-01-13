@@ -38,7 +38,7 @@ tests:
         - vsg
   - script:
       - vsg --help
-      - pytest
+      - pytest --no-cov
     files:
       source:
         - bin/
