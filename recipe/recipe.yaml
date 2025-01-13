@@ -20,7 +20,7 @@ build:
 
 requirements:
   host:
-    - python ${{ python_min }}
+    - python ${{ python_min }}.*
     - setuptools
     - setuptools-git-versioning
     - wheel
@@ -45,7 +45,7 @@ tests:
         - pyproject.toml
     requirements:
       run:
-        - python ${{ python_min }}
+        - python ${{ python_min }}.*
         - pip
         - pytest
         - pytest-cov
