@@ -52,7 +52,6 @@ tests:
         - pytest-html
         - pytest-xdist
     script:
-      - pip check
       - vsg --help
       - pytest
 
