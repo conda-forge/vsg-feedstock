@@ -36,7 +36,10 @@ tests:
   - python:
       imports:
         - vsg
-  - files:
+  - script:
+      - vsg --help
+      - pytest
+    files:
       source:
         - bin
         - docs
@@ -51,9 +54,6 @@ tests:
         - pytest-cov
         - pytest-html
         - pytest-xdist
-    script:
-      - vsg --help
-      - pytest
 
 about:
   summary: Coding style enforcement for VHDL
