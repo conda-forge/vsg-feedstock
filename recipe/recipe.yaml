@@ -1,6 +1,6 @@
 context:
   name: vsg
-  version: 3.27.0
+  version: 3.29.0
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/jeremiah-c-leary/vhdl-style-guide/archive/refs/tags/${{ version }}.tar.gz
-  sha256: d7e010e3e708c07336655db859b990324471c4b6c39111af1429bd4da0000a2b
+  sha256: f4ab101cb620f42e927631103e9e7e0caa50974a2cc7a980842e7ff8fe5409c8
 
 build:
   number: 0
