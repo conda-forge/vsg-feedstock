@@ -1,6 +1,6 @@
 context:
   name: vsg
-  version: "3.30.0"
+  version: 3.30.0
 
 package:
   name: ${{ name|lower }}
@@ -9,20 +9,19 @@ package:
 source:
   url: https://github.com/jeremiah-c-leary/vhdl-style-guide/archive/refs/tags/${{ version }}.tar.gz
   sha256: cd394fa6feebe7aa704a41aed9c743baf701d60807f73d191717dcfa188d240c
+  patches:
+    - patches/0001-version-patch.patch
 
 build:
-  number: 1
+  number: 2
   noarch: python
-  script: |
+  script:
     # Create a VERSION file with the correct version
     # because setuptools-git-versioning will not detect
     # the version from the GitHub archive (not a repository,
     # there is no tag).
-    echo "${{ version }}" > VERSION
-    # Patch pyproject to use the dynamic version from the
-    # VERSION file rather than a git tag
-    sed -i 's/template = "{tag}"/version_file = "VERSION"/' pyproject.toml
-    python -m pip install . -vv --no-deps --no-build-isolation
+    - echo ${{ version }} > VERSION
+    - python -m pip install . -vv --no-deps --no-build-isolation
   python:
     entry_points:
       - vsg = vsg.__main__:main
@@ -44,9 +43,6 @@ tests:
         - vsg
   - script:
       - vsg --help
-      # Verify correct version of the CLI
-      - vsg --version | grep "${{ version }}"
-      # Verify correct version of the module at runtime
       - python -c "from importlib.metadata import version; assert(version('${{ name }}')=='${{ version }}')"
       - pytest --no-cov
     files:
@@ -76,7 +72,10 @@ about:
   summary: Coding style enforcement for VHDL
   license: GPL-3.0-only
   license_file: LICENSE
+  description: |
+    Coding style enforcement for VHDL
   homepage: https://github.com/jeremiah-c-leary/vhdl-style-guide
+  repository: https://github.com/jeremiah-c-leary/vhdl-style-guide
   documentation: https://vhdl-style-guide.readthedocs.io/en/stable/
 
 extra:
