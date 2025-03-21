@@ -27,11 +27,6 @@ build:
       - vsg = vsg.__main__:main
 
 requirements:
-  build:
-    - if: not win
-      then: patch
-    - if: win
-      then: m2-patch
   host:
     - python ${{ python_min }}.*
     - setuptools
@@ -48,10 +43,6 @@ tests:
         - vsg
   - script:
       - vsg --help
-      - if: not win
-        then: vsg --version | grep "${{ version }}"
-      - if: win
-        then: vsg --version | findstr ${{ version }}
       - python -c "from importlib.metadata import version; assert(version('${{ name }}')=='${{ version }}')"
       - pytest --no-cov
     files:
