@@ -9,7 +9,11 @@ Package license: GPL-3.0-only
 
 Summary: Coding style enforcement for VHDL
 
+Development: https://github.com/jeremiah-c-leary/vhdl-style-guide
+
 Documentation: https://vhdl-style-guide.readthedocs.io/en/stable/
+
+Coding style enforcement for VHDL
 
 Current build status
 ====================
