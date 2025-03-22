@@ -1,6 +1,6 @@
 context:
   name: vsg
-  version: 3.30.0
+  version: "3.31.0"
 
 package:
   name: ${{ name|lower }}
@@ -8,12 +8,12 @@ package:
 
 source:
   url: https://github.com/jeremiah-c-leary/vhdl-style-guide/archive/refs/tags/${{ version }}.tar.gz
-  sha256: cd394fa6feebe7aa704a41aed9c743baf701d60807f73d191717dcfa188d240c
+  sha256: d589054f8fa3f4ff147efda4bdc8e91cc1123a6c7a5cf136b54c0a0d5d530116
   patches:
     - patches/0001-version-patch.patch
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script:
     # Create a VERSION file with the correct version
